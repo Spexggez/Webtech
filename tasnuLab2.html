@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8";
+        <meta name="viewport" content="width-device-width, Initial-scale-1.0";
+        <title> Registration Form</title>
+    <link rel="stylesheet" href="externalcss.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #221818;
+        }
+
+        h2 {
+            text-align: center;
+            color: rgb(253, 99, 99);
+        }
+        form {
+            width: 800px;
+            margin: auto;
+            padding: 30px;
+            background-color: rgb(175, 175, 175);
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+       
+        textarea,
+        select{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        </style>
+        </head>
+
+<body>         
+<h2>Registration Form</h2>
+
+<form action = "#" method ="post">
+
+
+<label for ="fullname"> Full Name:</label><br>
+<input type = "text" id="fullname" name="fullname" required><br><br>
+
+<label for ="email"> Email: </label><br>
+<input type = "email" id="email" name="email" required><br><br>
+
+<label for ="phone"> Phone No.</label><br>
+<input type = "tel" id="phone" name="phone" required> <br><br>
+
+
+<input type="radio" id="male" name="gender" value="Male">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="Female">
+<label for="female">Female</label>
+<input type="radio" id="other" name="gender" value="Other">
+<label for="other">Other</label><br><br>
+
+<Label for = "dob"> Date Of Birth:</Label><br>
+<input type= "date" name="dob"><br><br>
+
+<label for="Password">Password </label><br>
+<input type="password" name = "Password"> <br><br>
+
+<label for="ConfirmPassword">Confirm Password </label><br>
+<input type="password" name= "ConfirmPassword"> <br><br>
+
+<label for="Address"> Address</label><br>
+<textarea name=""Address" rows="5" cols=" 25"></textarea><br><br>
+<label for ="department"> Department:</label><br>
+<select id="department" name="department">
+    <option value="CSE">CSE</option>
+    <option value="BBA">BBA</option>
+    <option value="EEE">EEE</option>
+    <option value="LLB">LLB</option>
+</select> <br><br><br>
+
+<input type="submit" value="Register" style="background-color: rgb(55, 56, 55); color: white;"> <br>
+<input type="reset" value="Reset" style="background-color: rgb(255, 99, 99); color: white;">
+
+</form> 
+        </body>
+
+</html>
