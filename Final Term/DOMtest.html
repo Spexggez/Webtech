@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List DOM Practice</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+ 
+ 
+h1 {
+    text-align: center;
+}
+ 
+ 
+form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+ 
+input[type="text"] {
+    padding: 8px;
+    width: 200px;
+}
+ 
+button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+ 
+ 
+#student-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+ 
+.student-item {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+ 
+.student-item span {
+    flex: 1;
+}
+ 
+ 
+.btn-edit {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+}
+ 
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    margin-left: 5px;
+}
+ 
+ 
+.highlight {
+    background-color: yellow;
+}
+    </style>
+</head>
+
+
+<body>
+    <h1>Student List</h1>
+    <form id="student-form">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" placeholder="Enter student name">
+        <button type="submit">Add Student</button>
+    </form>
+ 
+ 
+    <ul id="student-list">
+       
+    </ul>
+ 
+   
+    <script>
+
+document.getElementById('student-form').addEventListener('submit', addStudent);
+function addStudent(event) {
+    event.preventDefault(); // Prevent page reload
+ 
+    // Get student name from input
+    let studentName = document.getElementById('student-name').value;
+ 
+    if (studentName === '') {
+        alert('Please enter a student name');
+        return;
+    }
+ 
+    // Create new list item
+    let li = document.createElement('li');
+    li.classList.add('student-item');
+ 
+    // Create span to show student name
+    let span = document.createElement('span');
+    span.textContent = studentName;
+ 
+    // Create Edit button
+    let editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    editButton.classList.add('btn-edit');
+    editButton.addEventListener('click', function () {
+        editStudent(li, span);
+    });
+ 
+    // Create Delete button
+    let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('btn-delete');
+    deleteButton.addEventListener('click', function () {
+        deleteStudent(li);
+    });
+ 
+    li.appendChild(span);
+    li.appendChild(editButton);
+    li.appendChild(deleteButton);
+ 
+    // Add li to the student list
+    document.getElementById('student-list').appendChild(li);
+ 
+    // Clear input field
+    document.getElementById('student-name').value = '';
+}
+ 
+
+function deleteStudent(studentElement) {
+    studentElement.remove();
+}
+ 
+// Edit a student's name
+function editStudent(studentElement, studentNameElement) {
+    let newName = prompt('Enter the new name:', studentNameElement.textContent);
+    if (newName !== null && newName !== '') {
+        studentNameElement.textContent = newName;
+    }
+}
+ 
+function changeListStyle() {
+    let students = document.querySelectorAll('.student-item');
+    students.forEach(student => {
+        student.classList.toggle('highlight');
+    });
+}
+ 
+let changeStyleButton = document.createElement('button');
+changeStyleButton.textContent = 'Highlight Students';
+changeStyleButton.addEventListener('click', changeListStyle);
+document.body.appendChild(changeStyleButton);
+</script>
+</body>
+</html>
+ 
+ 
+

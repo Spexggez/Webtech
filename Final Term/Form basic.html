@@ -1,0 +1,114 @@
+Basic Js
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Registration Form</title>
+<style> 
+
+
+
+</style>
+</head>
+ 
+<body>
+ 
+    <h2>Registration Form</h2>
+ 
+    <form id="myForm">
+ 
+        <label for="name"> Name </label> <br>
+        <input type="text" id="name">
+        <br><br>
+ 
+        Email:
+        <input type="email" id="email">
+        <br><br>
+ 
+        Age:
+        <input type="number" id="age">
+        <br><br>
+ 
+        Password:
+        <input type="password" id="password">
+        <br><br>
+ 
+        Confirm Password:
+        <input type="password" id="confirmPassword">
+        <br><br>
+ 
+        <button type="submit">Register</button>
+ 
+    </form>
+ 
+    <p id="message"></p>
+ 
+    <script>
+ 
+        document.getElementById("myForm")
+            .addEventListener("submit", function (event) {
+ 
+                event.preventDefault();
+ 
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let age = document.getElementById("age").value;
+                let password = document.getElementById("password").value;
+                let confirmPassword =
+                    document.getElementById("confirmPassword").value;
+ 
+                let message =
+                    document.getElementById("message");
+ 
+                // Name Validation
+                if (name === "") {
+                    message.innerHTML =
+                        "Name cannot be empty";
+                    return;
+                }
+ 
+                if (name.length < 3) {
+                    message.innerHTML =
+                        "Name must contain at least 3 characters";
+                    return;
+                }
+ 
+                // Email Validation
+                if (!email.includes("@")) {
+                    message.innerHTML =
+                        "Invalid email address";
+                    return;
+                }
+ 
+                // Age Validation
+                if (age < 18) {
+                    message.innerHTML =
+                        "Age must be 18 or above";
+                    return;
+                }
+ 
+                // Password Validation
+                if (password.length < 6) {
+                    message.innerHTML =
+                        "Password must contain at least 6 characters";
+                    return;
+                }
+ 
+                // Confirm Password Validation
+                if (password !== confirmPassword) {
+                    message.innerHTML =
+                        "Passwords do not match";
+                    return;
+                }
+ 
+                message.innerHTML =
+                    "Registration Successful! Welcome " + name;
+ 
+            });
+ 
+    </script>
+ 
+</body>
+ 
+</html>
+ 

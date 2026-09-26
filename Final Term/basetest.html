@@ -1,0 +1,173 @@
+<!Doctype html>
+<html>
+<head>
+     <style>
+        * {
+            margin: 0;
+            padding:0px;
+            box-sizing: border-box;
+        }
+    h1 {
+        margin: auto;
+        text-align: center;
+        padding: 5px 10px;
+        background-color: green;
+        color:Black;
+    } 
+     legend {
+        margin:auto;
+        text-align:center;
+        color: cadetblue;
+        margin:auto;
+     }
+     h3{
+        margin:auto;
+        font-style:italic;
+        padding: 5px;
+        text-align: center;
+        font-size: smaller;
+        background-color: skyblue;
+     }
+     table {
+        text-align:center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding: 2px;
+        width:100%;
+        
+     }
+     table,th,td {
+        border:1px solid #ccc;
+     }
+     th,td {
+        padding:10px;
+     }
+
+     #sbtn {
+        font-style:italic;
+        color:green;
+        padding:5px;
+        text-align:center;
+        background-color:black;
+     }
+
+     footer {
+         font-style: italic;
+         text-align:center;
+         border-radius:2px;
+         margin:auto;
+         padding:20px;
+     }
+th {
+    font-style: italic;
+    border: 1px;
+    margin: auto;
+    text-align:center;
+
+}
+
+     </style>
+
+</head>
+
+<body>
+    <fieldset>
+    <h1> THE ESPORTS PATH FOR SUCCESS</h1>
+    <h3> YOUR ALL IN ONE SOLUTION FOR ESPORTS</h3>
+</fieldset><br><br>
+<form action="#" method="post" id="personalinfo">
+<fieldset>
+<legend>
+This form is for collecting information.
+</legend>
+<label for="fname"> First Name</label>
+<input type="text" id="fname" name="fname" Required>
+<br><br>
+<label for="lname">Last Name</label>
+<input type="text" id="lname" name="lname" Required><br><br>
+
+
+<label for="gender">Select Gender</label>
+<select id="gender" name="gender">
+    <option value="" disabled selected>Choose Gender</option>
+    <option value="Male"> Male</option>
+    <option value="Female"> Female</option>
+</select> <br><br>
+<label for="platform" required>Select your Platform</label>
+<input type="radio" id="rpc" name="platform" value="PC" checked>
+<label for="rpc"> PC </label>
+<input type="radio" id="rconsole" name="platform" value="Console">
+<label for="rconsole">Console </label>
+<input type="radio" id="rphone" name="platform" value="Phone">
+<label for="rphone">Phone</label><br><br>
+
+<div class="form-group">
+    <label for="dob" required> Select Birthday</label>
+    <input type="date" id="dob" name="dob">
+</div>
+
+<br>
+<div class="form-group">
+   <input type="submit" id="sbtn" name="sbtn" value="SUBMIT INFORMATION">
+</div>
+<div class="form-group">
+<input type="reset" id="resetbtn" name="reset" value="RESET">
+</div>
+</fieldset>
+<input type="checkbox" id="checkbox" name="checkbox" value="newsletter">
+<label for="checkbox"> Subscribe to our Newsletter</label>
+
+
+<br><br><br>
+
+<fieldset>
+    <article>Registered users</article>
+
+</fieldset>
+</form>
+<footer> Coded with care, and love, copyright @Spexggez. </footer>
+
+
+<script>
+    const form = document.getElementById('personalinfo');
+    const tableBody=document.getElementById('Leaderboards');
+
+    form.addEventListener('submit',function(e){
+    e.preventDefault();
+    let firstName = form.fname.value.trim();
+    let lastName = form.lname.valuie.trim();
+    let selectedGender = form.gender.value;
+    let chosenPlatform = form.platform.value;
+    let bday = form.dob.value;
+    let nwsltr = form.checkbox.checked;
+
+    if(firstname === "" || lastName ===""){
+        alert("ERROR: PLEASE FILL UP THE TEXT FIELD")
+        return;
+    }
+    if(selectedGender ===""){
+        alert("ERROR: SELECT A GENDER")
+        return;
+    }
+    if(bday<=18){
+        alert("YOU CAN NOT REGISTER IF YOU ARE UNDER 18")
+    }
+if(bday===""){
+        alert("Enter Your Birthday")
+    }
+
+    let rowcount = tablebody.getElementsByTagName('tr').length;
+
+
+
+    })
+</script>
+
+
+
+
+
+</body>
+
+
+
+</html>
